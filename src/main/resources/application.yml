@@ -1,0 +1,70 @@
+server:
+  port: 8011
+
+#eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: 5
+#    leaseExpirationDurationInSeconds: 2
+#    health-check-url-path: /actuator/health
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#    healthcheck:
+#      enabled: true
+#    lease:
+#      duration: 5
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090
+#      routes:
+#        endpoints: trace, jolokia, info, configprops
+  application:
+    name: employee-service
+
+#management:
+##  trace:
+##    http:
+##      enabled: true
+##  endpoints:
+##    enabled-by-default: true
+##    web:
+##      exposure:
+##        include: '*'
+#  endpoint:
+##    info:
+##      enabled: true
+#    health:
+#      show-details: ALWAYS
+#  security:
+#    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#  trace:
+#    http:
+#      include: principal,request-headers,response-headers,cookie-headers,time-taken,authorization-header,remote-address,session-id
+  endpoint:
+    health:
+      show-details: always
+#    beans:
+#      cache:
+#        time-to-live: "10h"
+
+logging:
+  file:
+    name: "D:\\Microservice\\Planning project demo\\log\\employee_service.log"
+  level:
+    com.ibcs.idsdp.planning-idsdp-employee-service: INFO
